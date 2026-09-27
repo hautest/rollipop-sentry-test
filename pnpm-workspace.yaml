@@ -1,0 +1,8 @@
+nodeLinker: hoisted
+
+overrides:
+  '@rollipop/rolldown': 1.0.31
+
+allowBuilds:
+  '@sentry/cli': true
+  '@swc/core': true
