@@ -1,5 +1,10 @@
-import { StatusBar, StyleSheet, Text } from 'react-native';
+import * as Sentry from '@sentry/react-native';
+import { Button, StatusBar, StyleSheet, Text } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
+Sentry.init({
+  dsn: import.meta.env.ROLLIPOP_SENTRY_DSN,
+});
 
 function App() {
   return (
@@ -8,6 +13,12 @@ function App() {
         <StatusBar barStyle="dark-content" />
         <Text style={styles.title}>Rollipop Sentry Test</Text>
         <Text>App.tsx에서 시작하세요.</Text>
+        <Button
+          title="error button"
+          onPress={() => {
+            throw new Error('20260927 error');
+          }}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -27,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Sentry.wrap(App);

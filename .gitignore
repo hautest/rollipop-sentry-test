@@ -76,3 +76,7 @@ yarn-error.log
 
 # Rollipop
 .rollipop/
+
+# Local environment variables (commit examples only)
+.env*
+!.env*.example
