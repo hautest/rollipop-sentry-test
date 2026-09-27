@@ -24,5 +24,13 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [sentryRollupPlugin()],
+  plugins: [
+    sentryRollupPlugin({
+      release: {
+        name: process.env.SENTRY_RELEASE,
+        dist: process.env.SENTRY_DIST,
+        uploadLegacySourcemaps: './build/android',
+      },
+    }),
+  ],
 });

@@ -16,7 +16,7 @@ function App() {
         <Button
           title="error button"
           onPress={() => {
-            throw new Error('20260927 error');
+            throw new Error('20260927 prod build error');
           }}
         />
       </SafeAreaView>
